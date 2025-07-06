@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+    /* spacing values*/
+    --spacing-0: 0px;
+    --spacing-100: 8px;
+    --spacing-200: 16px;
+    --spacing-300: 24px;
+    --spacing-400: 32px;
+    --spacing-500: 40px;
+    --spacing-600: 48px;
+    --spacing-700: 56px;
+    --spacing-800: 64px;
+    --spacing-900: 72px;
+    --spacing-1000: 80px;
+    
+    --
+  
+    /** * Color palette
+     * https://tailwindcss.com/docs/customizing-colors
+     */
+    --color-blue-950:#10141e;
+    --color-blue-900: #161d2f;
+    --color-blue-500: #5a698f;
+    --color-red-500: #fc4747;
+  }
+  
+  html,
+  body {
+  @apply bg-white dark:bg-gray-950 ;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
