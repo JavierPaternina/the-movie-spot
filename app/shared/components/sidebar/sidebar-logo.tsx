@@ -1,9 +1,9 @@
-import { LOGO } from './sidebar.model';
+import { LogoIcon } from '../../svg/nav-bar';
 
 const SideBarLogo: React.FC = () => {
 	return (
 		<div className="flex lg:flex-0 text-xl size-[25px] sm:size-[32px] ">
-			<img src={LOGO.href} alt={LOGO.label} />
+			<LogoIcon className="fill-red-500" />
 		</div>
 	);
 };

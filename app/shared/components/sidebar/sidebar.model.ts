@@ -1,11 +1,34 @@
-// This file is part of the Movie Spot project.
-// It is licensed under the MIT License.
-const LOGO = { label: 'the-movie-spot', href: './sidebar/logo.svg' } as const;
- const SidebarOptions = [
-	{ label: 'Home', href: './sidebar/home.svg' },
-	{ label: 'Movies', href: './sidebar/movies.svg' },
-	{ label: 'Shows', href: './sidebar/tvshows.svg' },
-	{ label: 'Bookmarks', href: './sidebar/bookmarks.svg' },
-] as const;
 
-export { LOGO, SidebarOptions };
+// Sidebar model for The Movie Spot application.
+// This file defines the logo and sidebar options used in the application.
+import { BookmarksIcon, HomeIcon, MoviesIcon, SvgIcons, TvShowsIcon } from '../../svg/nav-bar';
+
+const SidebarOptions: {
+	label: string;
+	icon:  React.FC<SvgIcons> ;
+	href: string;
+}[] = [
+	{
+		label: 'Home',
+		icon:  HomeIcon ,
+		href: './'
+	},
+	{
+		label: 'Movies',
+		icon: MoviesIcon ,
+		href: './movies'
+	},
+	{
+		label: 'Shows',
+		icon: TvShowsIcon ,
+		href: './tv-series'
+	},
+	{
+		label: 'Bookmarks',
+		icon: BookmarksIcon,
+		href: './bookmarks'
+	},
+];
+
+export { SidebarOptions };
+

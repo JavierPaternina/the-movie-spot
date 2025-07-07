@@ -11,6 +11,11 @@ export const links: LinksFunction = () => [
 		crossOrigin: 'anonymous',
 	},
 	{
+		rel: 'icon',
+		href: './favicon.svg',
+		type: 'image/svg+xml',
+	},
+	{
 		rel: 'stylesheet',
 		href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap',
 	},

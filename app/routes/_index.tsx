@@ -2,7 +2,7 @@ import type { MetaFunction } from '@remix-run/node';
 import { HomePage } from '../pages/home';
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'New Remix App' }, { name: 'description', content: 'Welcome to Remix!' }];
+	return [{ title: 'The Movie Spot' }, { name: 'description', content: 'Welcome to the movie spot' }];
 };
 
 export default function Index() {
