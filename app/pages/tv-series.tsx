@@ -1,8 +1,11 @@
-export const TvSeriesPage = () => {
+import { MediaList, SectionTitle } from '@Components';
+import { TMediaInfo } from '@Types';
+import React from 'react';
+export const TvSeriesPage: React.FC<{ tvShows: TMediaInfo[] }> = ({ tvShows }) => {
 	return (
-		<div className="flex flex-col   min-h-screen min-w-screen">
-			<h1 className="text-4xl font-bold text-gray-800">Tv Shows</h1>
-			<p className="mt-4 text-lg text-gray-600">Your go-to place for all things movies and shows!</p>
+		<div className="flex flex-col h-full w-full gap-300">
+			<SectionTitle>Tv Series</SectionTitle>
+			<MediaList mediaData={tvShows} />
 		</div>
 	);
 };

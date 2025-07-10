@@ -1,17 +1,25 @@
 import { NavLink } from '@remix-run/react';
+import { TSvgIconsProps } from '@Types';
 import React from 'react';
-import { SvgIcons } from '../../svg/nav-bar';
 import { SidebarOptions } from './sidebar.model';
 
-const SidebarNavItem: React.FC<{ label: string; href: string; icon: React.FC<SvgIcons> }> = ({ label, href, icon }) => {
+const SidebarNavItem: React.FC<{ label: string; href: string; icon: React.FC<TSvgIconsProps> }> = ({
+	label,
+	href,
+	icon,
+}) => {
 	return (
 		<NavLink
 			key={label}
 			to={href}
 			prefetch="viewport"
-			className="flex items-center gap-2 text-gray-700 hover:text-blue-700 size-[16px] sm:size-[20px]"
+			className="flex items-center gap-2 text-gray-700 hover:text-blue-700"
 		>
-			{({ isActive }) => icon({ className: isActive ? 'fill-white' : 'fill-blue-500' })}
+			{({ isActive }) =>
+				icon({
+					className: `size-[16px] sm:size-[20px] hover:fill-red-500 ${isActive ? 'fill-white' : 'fill-blue-500'}`,
+				})
+			}
 		</NavLink>
 	);
 };

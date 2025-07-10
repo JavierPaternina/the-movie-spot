@@ -1,10 +1,4 @@
-import type { MetaFunction } from '@remix-run/node';
-import { HomePage } from '../pages/home';
-
-export const meta: MetaFunction = () => {
-	return [{ title: 'The Movie Spot' }, { name: 'description', content: 'Welcome to the movie spot' }];
+import { redirect } from '@remix-run/node';
+export const loader = async () => {
+	return redirect('/home');
 };
-
-export default function Index() {
-	return <HomePage />;
-}

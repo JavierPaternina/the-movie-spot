@@ -24,7 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./app/*"],
-      "@Components/*": ["./app/shared/components/*"]
+      "@Components": ["./app/shared/components/index.ts"],
     },
 
     // Vite takes care of building everything, not tsc.
