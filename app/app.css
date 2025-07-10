@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
+     /* font family */
+    --default-font-family: 'Outfit', sans-serif;
+
     /* spacing values*/
     --spacing-0: 0px;
     --spacing-100: 8px;
@@ -13,12 +17,8 @@
     --spacing-800: 64px;
     --spacing-900: 72px;
     --spacing-1000: 80px;
-    
-    --
   
-    /** * Color palette
-     * https://tailwindcss.com/docs/customizing-colors
-     */
+    /** * Color palette */
     --color-blue-950:#10141e;
     --color-blue-900: #161d2f;
     --color-blue-500: #5a698f;
@@ -33,3 +33,81 @@
     color-scheme: dark;
   }
 }
+
+
+
+ /* text presets for mobile devices
+    These classes are used to apply consistent text styles across the application*/
+  @utility text-preset-mobile-1 {
+    @apply text-xl font-light leading-[1.25] tracking-[.03rem];
+  }
+  
+  @utility text-preset-mobile-2 {
+    @apply text-base font-light leading-[1.25] tracking-[0];
+  }
+
+  @utility text-preset-mobile-3 {
+    @apply text-[15px] font-medium leading-[1.25] tracking-[0];
+  }
+ 
+  
+  @utility text-preset-mobile-4 {
+    @apply text-sm font-medium leading-[1.25] tracking-[0];
+  }
+  
+  @utility text-preset-mobile-5 {
+    @apply text-xs font-light leading-[1.25] tracking-[0];
+  }
+  
+  @utility text-preset-mobile-6 {
+    @apply text-[11px] font-light leading-[1.25] tracking-[0];
+  }
+  /* text presets for desktop screens*/
+  
+  @utility text-preset-1 {
+    @apply text-[32px] font-light leading-[1.25] tracking-[.025px];
+  }
+  
+  @utility text-preset-2 {
+    @apply text-2xl font-medium leading-[1.25] tracking-[0];
+  }
+
+  @utility text-preset-2-light {
+    @apply text-2xl font-light leading-[1.25] tracking-[0];
+  }
+  
+  @utility text-preset-3 {
+    @apply text-lg font-light leading-[1.25] tracking-[0];
+  }
+  
+  @utility text-preset-4 {
+    @apply text-[15px] font-light leading-[1.25] tracking-[0];
+  }
+  
+  @utility text-preset-5 {
+    @apply text-[13px] font-light leading-[1.25] tracking-[0];
+  }
+  
+  
+  @utility bookmark-icon-container {
+    @apply absolute top-100 right-100 size-[32px] lg:size-[42px] md:top-200 md:right-200 rounded-full bg-blue-950 opacity-[0.50] justify-center flex flex-col cursor-pointer;
+  }
+
+  @utility bookmark-icon-container-hover {
+    @apply bg-white opacity-100;
+  }
+
+  @utility bookmark-icon {   
+    @apply stroke-white stroke-[1.5] size-4 sm:size-5;   
+  }
+  @utility bookmark-icon-clicked {   
+    @apply fill-white opacity-100;  
+  }
+
+  @utility bookmark-icon-unClicked {   
+    @apply fill-none stroke-white stroke-[1.5] size-4 sm:size-5;  
+  }
+
+  @utility bookmark-icon-hover {   
+    @apply stroke-black ;   
+  }

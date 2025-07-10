@@ -1,8 +1,11 @@
-export const MoviesPage = () => {
+import { MediaList, SectionTitle } from '@Components';
+import { TMediaInfo } from '@Types';
+import React from 'react';
+export const MoviesPage: React.FC<{ movies: TMediaInfo[] }> = ({ movies }) => {
 	return (
-		<div className="flex flex-col   min-h-screen min-w-screen">
-			<h1 className="text-4xl font-bold text-gray-800">Movies</h1>
-			<p className="mt-4 text-lg text-gray-600">Your go-to place for all things movies and shows!</p>
+		<div className="flex flex-col h-full w-full gap-300">
+			<SectionTitle>Movies</SectionTitle>
+			<MediaList mediaData={movies} />
 		</div>
 	);
 };

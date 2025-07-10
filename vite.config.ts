@@ -3,7 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { defineConfig } from "vite";
 import devtoolsJson from 'vite-plugin-devtools-json';
-import tsconfigPaths from "vite-tsconfig-paths";
 
 declare module "@remix-run/node" {
   interface Future {
@@ -14,8 +13,11 @@ declare module "@remix-run/node" {
 export default defineConfig({
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./app/*"),
-      "@Components": path.resolve(__dirname, "./app/shared/components/*"),
+      "@": path.resolve(__dirname, "./app/"),
+      "@Components": path.resolve(__dirname, "./app/shared/components/index.ts"),
+      "@Hooks": path.resolve(__dirname, "./app/shared/hooks/index.ts"),
+      "@Types": path.resolve(__dirname, "./app/shared/types/index.ts"),
+      "@Svg": path.resolve(__dirname, "./app/shared/svg/index.ts"),
     },
   },
   plugins: [
@@ -28,7 +30,6 @@ export default defineConfig({
         v3_lazyRouteDiscovery: true,
       },
     }),
-    tsconfigPaths(),
     tailwindcss(),
     devtoolsJson()
   ],

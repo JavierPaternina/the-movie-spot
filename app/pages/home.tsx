@@ -1,8 +1,15 @@
-export const HomePage = () => {
+import { MediaList, SectionTitle, Slider } from '@Components';
+import { useTrendingHome } from '@Hooks';
+import { TMediaInfo } from '@Types';
+import React from 'react';
+export const HomePage: React.FC<{ data: TMediaInfo[] }> = ({ data }) => {
+	const { trendingInfo, recommended } = useTrendingHome(data);
 	return (
-		<div className="flex flex-col   min-h-screen min-w-screen">
-			<h1 className="text-4xl font-bold text-gray-800">Welcome to The Movie Spot</h1>
-			<p className="mt-4 text-lg text-gray-600">Your go-to place for all things movies and shows!</p>
+		<div className="flex flex-col h-full w-full gap-300">
+			<SectionTitle>Trending</SectionTitle>
+			<Slider sliderData={trendingInfo} />
+			<SectionTitle>Recommended For you</SectionTitle>
+			<MediaList mediaData={recommended} />
 		</div>
 	);
 };

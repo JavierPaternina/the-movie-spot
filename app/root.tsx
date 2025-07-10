@@ -1,7 +1,7 @@
 import type { LinksFunction } from '@remix-run/node';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import './app.css';
-import Sidebar from './shared/components/sidebar/sidebar';
+import { SearchBar, Sidebar } from '@Components';
 
 export const links: LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -30,11 +30,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body className="flex flex-col lg:flex-row min-h-screen text-gray-900 antialiased bg-blue-950 h-screen w-screen overflow-hidden p-0">
-				<section className="flex flex-col sm:p-6">
+			<body className="flex flex-col lg:flex-row min-h-screen text-gray-900 antialiased  bg-blue-950 h-screen w-screen  p-0 lg:gap-100">
+				<section className="flex flex-col sm:p-200">
 					<Sidebar />
 				</section>
-				<section className="flex flex-col min-h-screen min-w-screen lg:pt-[60px] px-4 sm:px-8">{children}</section>
+				<section className="flex flex-col h-full w-full lg:pt-700 px-200 lg:px-0 mb-100 pt-200  overflow-y-auto overflow-x-hidden scroll-y-smooth ">
+					<SearchBar />
+					{children}
+				</section>
 				<ScrollRestoration />
 				<Scripts />
 			</body>
