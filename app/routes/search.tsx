@@ -12,13 +12,10 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 		// For example, you could return an empty array or throw an error
 		return { searchResults: [] };
 	}
-	if (!query) {
-		throw new Error('Query parameter is required');
-	}
 
 	const searchResults = await getSearchResults(query);
 	if (!searchResults || !Array.isArray(searchResults)) {
-		throw new Error('Failed to fetch search results');
+		return { searchResults: [] };
 	}
 	// Map the results to ensure they have the correct media_type
 	const formattedResults = searchResults.filter(

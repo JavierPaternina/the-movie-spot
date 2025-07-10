@@ -12,7 +12,7 @@ export const CardDescription: React.FC<{ description: TCardDescription }> = ({ d
 			>
 				<span>{year}</span>
 				<DotIcon />
-				<div className="flex flex-row gap-1 align-items-center">
+				<div className="flex flex-row gap-1 items-center">
 					{MediaIcon && <MediaIcon className="size-[18px] sm:size-[22px] fill-white opacity-[0.70] mt-[1px]" />}
 					<span className="mt-[2px]">{media}</span>
 				</div>
