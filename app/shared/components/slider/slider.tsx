@@ -1,13 +1,19 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import { TMediaInfo } from '../../types/trending';
 import { SliderContentItem } from './slider-content-item';
 
 export const Slider: React.FC<{ sliderData: TMediaInfo[] }> = ({ sliderData }) => {
+	const constraintsRef = useRef(null);
 	return (
-		<div className="flex flex-row  gap-200 sm:gap-500 ">
-			{sliderData?.map((item) => (
-				<SliderContentItem item={item} key={item.id} />
-			))}
+		<div className="relative flex flex-row gap-4 md:gap-10 cursor-move" ref={constraintsRef}>
+			<motion.ul className="flex h-full items-center gap-4 md:gap-10" dragConstraints={constraintsRef} drag="x">
+				{sliderData?.map((item) => (
+					<li key={item.id}>
+						<SliderContentItem item={item} />
+					</li>
+				))}
+			</motion.ul>
 		</div>
 	);
 };
