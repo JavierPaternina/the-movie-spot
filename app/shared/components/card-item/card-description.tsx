@@ -6,9 +6,11 @@ import { BASE_CSS, DESCRIPTION_CSS, TITLE_CSS } from './card.model';
 export const CardDescription: React.FC<{ description: TCardDescription }> = ({ description }) => {
 	const { MediaIcon, media, mode, title, year } = description;
 	return (
-		<div className={`${BASE_CSS[mode]} flex flex-col w-full justify-start overflow-hidden`}>
+		<div className={`${BASE_CSS[mode as keyof typeof BASE_CSS]} flex flex-col w-full justify-start overflow-hidden`}>
 			<div
-				className={`${DESCRIPTION_CSS[mode]} text-white flex flex-row items-center gap-2 w-full opacity-[0.70] h-[20px] content-center`}
+				className={`${
+					DESCRIPTION_CSS[mode as keyof typeof DESCRIPTION_CSS]
+				} text-white flex flex-row items-center gap-2 w-full opacity-[0.70] h-[20px] content-center`}
 			>
 				<span>{year}</span>
 				<DotIcon />
@@ -19,7 +21,7 @@ export const CardDescription: React.FC<{ description: TCardDescription }> = ({ d
 				<DotIcon />
 				<span>PG</span>
 			</div>
-			<p className={`${TITLE_CSS[mode]} text-white text-ellipse`}>{title}</p>
+			<p className={`${TITLE_CSS[mode as keyof typeof TITLE_CSS]} text-white text-ellipse`}>{title}</p>
 		</div>
 	);
 };
