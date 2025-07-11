@@ -1,11 +1,11 @@
-import { useBookmarkIcon } from '@/shared/hooks/useBookmarkAction';
+import { useBookmarkAction } from '@Hooks';
 import { BookmarkIcon } from '@Svg';
 import { TCardImage } from '@Types';
 import React from 'react';
 import { BOOKMARK_CSS } from './card.model';
 
 export const CardImage: React.FC<{ info: TCardImage }> = ({ info }) => {
-	const { isBookMarked, onBookmarkClick } = useBookmarkIcon(info.id);
+	const { isBookMarked, onBookmarkClick } = useBookmarkAction(info.id);
 	return (
 		<div className=" w-full h-full relative flex-shrink-0 rounded-lg ">
 			<img src={info.image} alt={info.title} className="w-full h-full object-cover rounded-lg" />

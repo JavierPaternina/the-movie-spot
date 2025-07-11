@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export const useBookmarkIcon = (mediaId:string | number) => {
+export const useBookmarkAction = (mediaId:string | number) => {
     const [isBookMarked, setIsBookMarked] = useState(false);
     const onBookmarkClick = () => {
         setIsBookMarked(!isBookMarked);

@@ -1,7 +1,9 @@
+
 import { vitePlugin as remix } from "@remix-run/dev";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { defineConfig } from "vite";
+import { netlifyPlugin } from "@netlify/remix-adapter/plugin";
 import devtoolsJson from 'vite-plugin-devtools-json';
 
 declare module "@remix-run/node" {
@@ -31,6 +33,7 @@ export default defineConfig({
       },
     }),
     tailwindcss(),
-    devtoolsJson()
+    devtoolsJson(),
+    netlifyPlugin()
   ],
 });

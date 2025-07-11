@@ -21,15 +21,6 @@ export const getMovies = async ():Promise< TMediaInfo[] | unknown> => {
   }
 }
 
-export const getMovieDetails = async (id: number):Promise< TMediaInfo[] | unknown> => {
-  try {
-    const response = await http.get(`movie/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching movie details:", error);
-    throw error;
-  }
-};
 
 export const getTvShows = async ():Promise< TMediaInfo[] | unknown> => {
   try {
@@ -41,19 +32,10 @@ export const getTvShows = async ():Promise< TMediaInfo[] | unknown> => {
   }
 };
 
-export const getTvShowDetails = async (id: number):Promise< TMediaInfo[] | unknown> => {
-  try {
-    const response = await http.get(`tv/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching TV show details:", error);
-    throw error;
-  }
-};
 
 export const getSearchResults = async (query: string):Promise< TMediaInfo[] | unknown> => {
   try {
-    const response = await http.get(`search/multi?query=${encodeURIComponent(query)}&include_adult=true&language=en-US&page=1`);
+    const response = await http.get(`search/multi?query=${encodeURIComponent(query)}&include_adult=false&language=en-US&page=1`);
     return response.data.results;
   } catch (error) {
     console.error("Error fetching search results:", error);
