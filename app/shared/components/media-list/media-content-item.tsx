@@ -2,8 +2,13 @@ import { CARD_MODE } from '@/shared/constant/card-constant';
 import { CardDescription, CardImage } from '@Components';
 import { useCardData } from '@Hooks';
 import { TMediaInfo } from '@Types';
-import React from 'react';
-export const MediaContentItem: React.FC<{ item: TMediaInfo }> = ({ item }) => {
+import React, { memo } from 'react';
+
+interface MediaContentItemProps {
+	item: TMediaInfo;
+}
+
+const MediaContentItemComponent: React.FC<MediaContentItemProps> = ({ item }) => {
 	const { descriptionCard, imageCard } = useCardData(item, CARD_MODE.Media);
 	// The MediaContentItem component is used to display media items in a grid format.
 	return (
@@ -15,3 +20,9 @@ export const MediaContentItem: React.FC<{ item: TMediaInfo }> = ({ item }) => {
 		</div>
 	);
 };
+
+export const MediaContentItem = memo(MediaContentItemComponent, (prevProps, nextProps) => {
+	return prevProps.item.id === nextProps.item.id;
+});
+
+export default MediaContentItem;

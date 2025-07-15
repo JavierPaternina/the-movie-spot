@@ -1,4 +1,4 @@
-import { getMovies } from '@/api/api-calls';
+import { getMovies } from '@/.server/api/api-calls';
 import { MoviesPage } from '@/pages/movies';
 import { MEDIA_TYPE } from '@/shared/constant/media-type';
 import type { MetaFunction } from '@remix-run/node';

@@ -1,4 +1,4 @@
-import { getSearchResults } from '@/api/api-calls';
+import { getSearchResults } from '@/.server/api/api-calls';
 import { SearchPage } from '@/pages/search';
 import { MEDIA_TYPE } from '@/shared/constant/media-type';
 import { LoaderFunctionArgs } from '@remix-run/node';
@@ -8,18 +8,19 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const url = new URL(request.url);
 	const query = url.searchParams.get('search') || '';
 	if (!query) {
-		// If no query is provided, you might want to handle it differently
-		// For example, you could return an empty array or throw an error
-		return { searchResults: [] };
+		// If no query is provided, return an empty formattedResults array for consistency
+		return { formattedResults: [] };
 	}
 
 	const searchResults = await getSearchResults(query);
 	if (!searchResults || !Array.isArray(searchResults)) {
-		return { searchResults: [] };
+		return { formattedResults: [] };
 	}
 	// Map the results to ensure they have the correct media_type
 	const formattedResults = searchResults.filter(
-		(result) => result.media_type === MEDIA_TYPE.Movie || result.media_type === MEDIA_TYPE.TV
+		(result) =>
+			((result.media_type === MEDIA_TYPE.Movie || result.media_type === MEDIA_TYPE.TV) && result.backdrop_path) ||
+			result.poster_path
 	);
 
 	return { formattedResults };

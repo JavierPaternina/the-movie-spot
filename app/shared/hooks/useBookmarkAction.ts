@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useFetcher } from "@remix-run/react";
+import { useEffect, useState } from "react";
 
 
-export const useBookmarkAction = (mediaId:string | number) => {
+type BookmarkResponse = { success?: boolean };
+
+export const useBookmarkAction = (mediaId: string | number) => {
     const [isBookMarked, setIsBookMarked] = useState(false);
+    const fetcher = useFetcher<BookmarkResponse>();
     const onBookmarkClick = () => {
-        setIsBookMarked(!isBookMarked);
+        if (fetcher.state === "submitting") return; // Prevent multiple clicks
+    fetcher.submit(
+        { bookmarkId: mediaId },
+        { method: "post", action: `/bookmark-action` }
+    );
         // Handle bookmark click logic here, e.g., save to local storage or API
-        console.log('Bookmark clicked for media ID:', mediaId, 'Status:', !isBookMarked);
     };
-    return { isBookMarked, onBookmarkClick };
 
+    useEffect(() => {
+        if (fetcher.data && fetcher.data.success) {
+            setIsBookMarked(true);
+        }
+    }, [fetcher.data, mediaId]);
+
+    return { isBookMarked, onBookmarkClick };
 };

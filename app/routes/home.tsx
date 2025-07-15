@@ -1,4 +1,4 @@
-import { getTrending } from '@/api/api-calls';
+import { getTrending } from '@/.server/api/api-calls';
 import { HomePage } from '@/pages/home';
 import { LoaderFunction, MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';

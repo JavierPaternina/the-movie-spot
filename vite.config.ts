@@ -23,6 +23,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    
     remix({
       future: {
         v3_fetcherPersist: true,
@@ -34,6 +35,11 @@ export default defineConfig({
     }),
     tailwindcss(),
     devtoolsJson(),
-    netlifyPlugin()
+    netlifyPlugin(),
   ],
+  test: {
+    environment: 'jsdom',
+    setupFiles: './__tests__/setup.ts',
+    globals: true,
+  },
 });
