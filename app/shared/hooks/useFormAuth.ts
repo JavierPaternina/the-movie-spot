@@ -90,9 +90,5 @@ export const useFormAuth = () => {
 // Function to validate email format
 // This function checks if the email is in a valid format using a regular expression
 const validateEmail = (value: string): boolean => {
-    if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-       return false
-    } else {
-        return true;
-    }
+    return !!value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
