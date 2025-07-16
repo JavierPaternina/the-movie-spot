@@ -1,5 +1,5 @@
+import { TSvgIconsProps } from '@/shared/types';
 import { NavLink } from '@remix-run/react';
-import { TSvgIconsProps } from '@Types';
 import React from 'react';
 import { SidebarOptions } from './sidebar.model';
 

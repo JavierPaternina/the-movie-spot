@@ -1,9 +1,9 @@
 
+import { netlifyPlugin } from "@netlify/remix-adapter/plugin";
 import { vitePlugin as remix } from "@remix-run/dev";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { defineConfig } from "vite";
-import { netlifyPlugin } from "@netlify/remix-adapter/plugin";
 import devtoolsJson from 'vite-plugin-devtools-json';
 
 declare module "@remix-run/node" {
@@ -17,12 +17,11 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./app/"),
       "@Components": path.resolve(__dirname, "./app/shared/components/index.ts"),
-      "@Hooks": path.resolve(__dirname, "./app/shared/hooks/index.ts"),
-      "@Types": path.resolve(__dirname, "./app/shared/types/index.ts"),
-      "@Svg": path.resolve(__dirname, "./app/shared/svg/index.ts"),
+    
     },
   },
   plugins: [
+    
     remix({
       future: {
         v3_fetcherPersist: true,
@@ -34,6 +33,11 @@ export default defineConfig({
     }),
     tailwindcss(),
     devtoolsJson(),
-    netlifyPlugin()
+    netlifyPlugin(),
   ],
+  test: {
+    environment: 'jsdom',
+    setupFiles: './__tests__/setup.ts',
+    globals: true,
+  },
 });

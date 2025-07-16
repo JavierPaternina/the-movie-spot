@@ -1,6 +1,6 @@
+import { useTrendingHome } from '@/shared/hooks';
+import { TMediaInfo } from '@/shared/types';
 import { MediaList, SectionTitle, Slider } from '@Components';
-import { useTrendingHome } from '@Hooks';
-import { TMediaInfo } from '@Types';
 import React from 'react';
 export const HomePage: React.FC<{ data: TMediaInfo[] }> = ({ data }) => {
 	const { trendingInfo, recommended } = useTrendingHome(data);

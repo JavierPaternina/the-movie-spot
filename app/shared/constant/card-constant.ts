@@ -1,5 +1,5 @@
-import { MoviesIcon, TvShowsIcon } from "@Svg";
-import { TSvgIconsProps } from "@Types";
+import { MoviesIcon, TvShowsIcon } from "@/shared/svg";
+import { TSvgIconsProps } from "@/shared/types";
 
 const CARD_MODE = {
     Slider: 'Slider',

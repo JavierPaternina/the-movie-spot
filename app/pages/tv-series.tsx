@@ -1,5 +1,5 @@
+import { TMediaInfo } from '@/shared/types';
 import { MediaList, SectionTitle } from '@Components';
-import { TMediaInfo } from '@Types';
 import React from 'react';
 export const TvSeriesPage: React.FC<{ tvShows: TMediaInfo[] }> = ({ tvShows }) => {
 	return (

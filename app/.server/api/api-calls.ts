@@ -1,4 +1,4 @@
-import { TMediaInfo } from "@Types";
+import { TMediaInfo } from "@/shared/types";
 import { http } from "./fetch-client";
 
 export const getTrending = async ():Promise< TMediaInfo[] | unknown> => {

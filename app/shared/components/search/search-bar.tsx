@@ -1,4 +1,4 @@
-import { SearchIcon } from '@Svg';
+import { SearchIcon } from '@/shared/svg';
 import { Form, useSearchParams } from '@remix-run/react';
 import React from 'react';
 export const SearchBar: React.FC = () => {

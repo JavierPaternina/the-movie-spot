@@ -1,9 +1,9 @@
-import { getTvShows } from '@/api/api-calls';
+import { getTvShows } from '@/.server/api/api-calls';
 import { TvSeriesPage } from '@/pages/tv-series';
 import { MEDIA_TYPE } from '@/shared/constant/media-type';
+import { TMediaInfo } from '@/shared/types';
 import type { MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { TMediaInfo } from '@Types';
 
 export const meta: MetaFunction = () => {
 	return [{ title: 'The Movie spot - Tv Series' }, { name: 'TV Series ', content: 'Welcome to Tv series' }];

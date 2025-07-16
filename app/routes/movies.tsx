@@ -1,9 +1,9 @@
-import { getMovies } from '@/api/api-calls';
+import { getMovies } from '@/.server/api/api-calls';
 import { MoviesPage } from '@/pages/movies';
 import { MEDIA_TYPE } from '@/shared/constant/media-type';
+import { TMediaInfo } from '@/shared/types';
 import type { MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { TMediaInfo } from '@Types';
 
 export const meta: MetaFunction = () => {
 	return [{ title: 'The Movie spot - Movies' }, { name: 'Movies ', content: 'Welcome to Movies' }];

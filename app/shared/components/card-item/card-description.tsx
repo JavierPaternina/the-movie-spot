@@ -1,12 +1,12 @@
-import { DotIcon } from '@Svg';
-import { TCardDescription } from '@Types';
+import { DotIcon } from '@/shared/svg';
+import { TCardDescription } from '@/shared/types';
 import React from 'react';
 import { BASE_CSS, DESCRIPTION_CSS, TITLE_CSS } from './card.model';
 
 export const CardDescription: React.FC<{ description: TCardDescription }> = ({ description }) => {
 	const { MediaIcon, media, mode, title, year } = description;
 	return (
-		<div className={`${BASE_CSS[mode as keyof typeof BASE_CSS]} flex flex-col w-full justify-start overflow-hidden`}>
+		<div className={`${BASE_CSS[mode as keyof typeof BASE_CSS]} flex flex-col w-full justify-start `}>
 			<div
 				className={`${
 					DESCRIPTION_CSS[mode as keyof typeof DESCRIPTION_CSS]
@@ -21,7 +21,12 @@ export const CardDescription: React.FC<{ description: TCardDescription }> = ({ d
 				<DotIcon />
 				<span>PG</span>
 			</div>
-			<p className={`${TITLE_CSS[mode as keyof typeof TITLE_CSS]} text-white text-ellipse`}>{title}</p>
+			<p
+				className={`${TITLE_CSS[mode as keyof typeof TITLE_CSS]} text-white h-[20px] md:h-[30px] truncate`}
+				title={title}
+			>
+				{title}
+			</p>
 		</div>
 	);
 };

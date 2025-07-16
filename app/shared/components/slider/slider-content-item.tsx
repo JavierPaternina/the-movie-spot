@@ -1,6 +1,6 @@
+import { useCardData } from '@/shared/hooks';
+import { TMediaInfo } from '@/shared/types';
 import { CardDescription, CardImage } from '@Components';
-import { useCardData } from '@Hooks';
-import { TMediaInfo } from '@Types';
 import React from 'react';
 import { CARD_MODE } from '../../constant/card-constant';
 export const SliderContentItem: React.FC<{ item: TMediaInfo }> = ({ item }) => {
