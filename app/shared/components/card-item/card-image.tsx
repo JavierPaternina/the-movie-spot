@@ -1,4 +1,4 @@
-import { TCardImage } from '@Types';
+import { TCardImage } from '@/shared/types';
 import React from 'react';
 import { CardBookmark } from './card-bookmark';
 import { CardOverlayPlay } from './card-overlay-play';

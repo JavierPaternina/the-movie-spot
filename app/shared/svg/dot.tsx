@@ -1,4 +1,4 @@
-import { TSvgIconsProps } from '@Types';
+import { TSvgIconsProps } from '@/shared/types';
 import React from 'react';
 
 export const DotIcon: React.FC<TSvgIconsProps> = ({ className }) => (

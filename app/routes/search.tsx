@@ -1,9 +1,9 @@
 import { getSearchResults } from '@/.server/api/api-calls';
 import { SearchPage } from '@/pages/search';
 import { MEDIA_TYPE } from '@/shared/constant/media-type';
+import { TMediaInfo } from '@/shared/types';
 import { LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { TMediaInfo } from '@types';
 export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const url = new URL(request.url);
 	const query = url.searchParams.get('search') || '';

@@ -1,4 +1,4 @@
-import { TSvgIconsProps } from '@Types';
+import { TSvgIconsProps } from '@/shared/types';
 import React from 'react';
 // SVG icons for the navigation bar in The Movie Spot application.
 const LogoIcon: React.FC<TSvgIconsProps> = ({ className }) => (

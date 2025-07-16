@@ -1,5 +1,5 @@
 import { MEDIA_TYPE } from "@/shared/constant/media-type";
-import { TMediaInfo } from "@Types";
+import { TMediaInfo } from "@/shared/types";
 import { useEffect, useState } from "react";
 
 export const useTrendingHome = (trending: TMediaInfo[]) => { 

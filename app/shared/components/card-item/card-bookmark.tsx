@@ -1,5 +1,5 @@
-import { useBookmarkAction } from '@Hooks';
-import { BookmarkIcon } from '@Svg';
+import { useBookmarkAction } from '@/shared/hooks';
+import { BookmarkIcon } from '@/shared/svg';
 import React from 'react';
 import { BOOKMARK_CSS } from './card.model';
 export const CardBookmark: React.FC<{ id: string | number }> = ({ id }) => {

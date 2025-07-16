@@ -6,5 +6,11 @@ export type User = {
   username: string;
   password: string;
 };
+export interface TAuthErrors {
+  email?: string;
+  password?: string;
+  repeatPassword?: string;
+  general?: string;
+}
 
 export type UserSessionData = Omit<User, 'password' | 'username'>;

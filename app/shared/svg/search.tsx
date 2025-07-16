@@ -1,4 +1,4 @@
-import { TSvgIconsProps } from '@Types';
+import { TSvgIconsProps } from '@/shared/types';
 import React from 'react';
 
 // SVG icon for the search functionality in The Movie Spot application.

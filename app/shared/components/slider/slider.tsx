@@ -1,6 +1,6 @@
+import { TMediaInfo } from '@/shared/types';
 import { motion } from 'framer-motion';
 import React, { useRef } from 'react';
-import { TMediaInfo } from '../../types/trending';
 import { SliderContentItem } from './slider-content-item';
 
 export const Slider: React.FC<{ sliderData: TMediaInfo[] }> = ({ sliderData }) => {

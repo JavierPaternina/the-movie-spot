@@ -1,4 +1,4 @@
-import { PlayIcon } from '@/shared/svg/playIcon';
+import { PlayIcon } from '@/shared/svg';
 import React from 'react';
 
 export const CardOverlayPlay: React.FC<{ onClick: () => void }> = ({ onClick }) => {

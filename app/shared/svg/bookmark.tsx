@@ -1,4 +1,4 @@
-import { TSvgIconsProps } from '@Types';
+import { TSvgIconsProps } from '@/shared/types';
 import React from 'react';
 export const BookmarkIcon: React.FC<TSvgIconsProps> = ({ className }) => {
 	return (

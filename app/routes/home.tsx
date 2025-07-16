@@ -1,8 +1,8 @@
 import { getTrending } from '@/.server/api/api-calls';
 import { HomePage } from '@/pages/home';
+import { TMediaInfo } from '@/shared/types';
 import { LoaderFunction, MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { TMediaInfo } from '@Types';
 
 export const meta: MetaFunction = () => {
 	return [{ title: 'The Movie Spot' }, { name: 'description', content: 'Welcome to the movie spot' }];

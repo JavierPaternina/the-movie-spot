@@ -1,6 +1,6 @@
 
 import { CARD_MODE, DESCRIPTION_OPTION, IMG_SIZE, IMG_URL } from '@/shared/constant/card-constant';
-import { DescriptionModel, TCardDescription, TCardImage, TMediaInfo } from '@Types';
+import { DescriptionModel, TCardDescription, TCardImage, TMediaInfo } from '@/shared/types';
 
 export const useCardData = (item: TMediaInfo, mode:DescriptionModel) => { 
     const { title, backdrop_path, release_date, media_type, name ,first_air_date,poster_path } = item;

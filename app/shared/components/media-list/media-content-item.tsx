@@ -1,7 +1,7 @@
 import { CARD_MODE } from '@/shared/constant/card-constant';
+import { useCardData } from '@/shared/hooks';
+import { TMediaInfo } from '@/shared/types';
 import { CardDescription, CardImage } from '@Components';
-import { useCardData } from '@Hooks';
-import { TMediaInfo } from '@Types';
 import React, { memo } from 'react';
 
 interface MediaContentItemProps {

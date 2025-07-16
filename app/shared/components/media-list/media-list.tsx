@@ -1,4 +1,4 @@
-import { TMediaInfo } from '@Types';
+import { TMediaInfo } from '@/shared/types';
 import React from 'react';
 import { MediaContentItem } from './media-content-item';
 

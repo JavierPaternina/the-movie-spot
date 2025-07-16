@@ -1,5 +1,5 @@
 import React from 'react';
-import { TSvgIconsProps } from '../types';
+import { TSvgIconsProps } from '@/shared/types';
 
 export const PlayIcon: React.FC<TSvgIconsProps> = ({ className }) => {
 	return (

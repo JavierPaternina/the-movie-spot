@@ -1,10 +1,10 @@
+import { TMediaInfo } from '@/shared/types';
 import { MediaList, SectionTitle } from '@Components';
 import { useSearchParams } from '@remix-run/react';
-import { TMediaInfo } from '@types';
 import React from 'react';
 
 export const SearchPage: React.FC<{ searchResults: TMediaInfo[] }> = ({ searchResults }) => {
-	const [searchParams, setSearchParams] = useSearchParams();
+	const [searchParams] = useSearchParams();
 	const query = searchParams.get('search') || '';
 	return (
 		<div className="flex flex-col h-full w-full gap-300">

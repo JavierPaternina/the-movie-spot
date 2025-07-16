@@ -1,5 +1,5 @@
-import { DotIcon } from '@Svg';
-import { TCardDescription } from '@Types';
+import { DotIcon } from '@/shared/svg';
+import { TCardDescription } from '@/shared/types';
 import React from 'react';
 import { BASE_CSS, DESCRIPTION_CSS, TITLE_CSS } from './card.model';
 

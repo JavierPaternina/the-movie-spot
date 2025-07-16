@@ -1,8 +1,8 @@
 
 // Sidebar model for The Movie Spot application.
 // This file defines the logo and sidebar options used in the application.
-import { BookmarksIcon, HomeIcon, MoviesIcon, TvShowsIcon } from '@Svg';
-import { TSvgIconsProps } from '@Types';
+import { BookmarksIcon, HomeIcon, MoviesIcon, TvShowsIcon } from '@/shared/svg';
+import { TSvgIconsProps } from '@/shared/types';
 
 const SidebarOptions: {
 	label: string;
