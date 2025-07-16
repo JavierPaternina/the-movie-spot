@@ -1,7 +1,7 @@
 
 
 import { getUser } from "@/.server/auth/user-session";
-import { getBookmark } from "@/.server/services/set-bookmark";
+import { createBookmark, deleteBookmark, getBookmark } from "@/.server/services/set-bookmark";
 import type { ActionFunctionArgs } from "@remix-run/node";
 
 export const action = async ({  request }: ActionFunctionArgs) => {
@@ -12,21 +12,36 @@ export const action = async ({  request }: ActionFunctionArgs) => {
   }
   // Extract bookmarkId from params
   const formData = await request.formData();
-  const { bookmarkId } = Object.fromEntries(formData) as { bookmarkId: string | number };
+  const { bookmark, intent } = Object.fromEntries(formData) as { bookmark: string, intent: string; };
+  const bookmarkState = JSON.parse(bookmark);
+  console.log("Bookmark action received:", bookmarkState, intent);
 
-  if (!bookmarkId) {
-    console.error("Bookmark ID is required");
+  if (!bookmarkState) {
+    console.error("Bookmark is required");
     return { success: false };
   }
 
   // Assuming you have a function to handle the bookmark action
-  const bookmark = await getBookmark(bookmarkId);
-  
-  if (!bookmark) {
-    console.error("Bookmark not found");
+  const bm = await getBookmark(bookmarkState.id, user.id) ?? undefined;
+  console.log("Bookmark found:", bm);
+  if (!bm && intent === "remove") {
+    console.error("Bookmark not found for removal");
     return { success: false };
   }
-  // Perform your action with the bookmark here
-
-  return { success: true };
+  if (intent === "add") {
+    // Create a new bookmark
+    const createdBookmark = await createBookmark(user.id, bookmarkState);
+    console.log("Bookmark created:", createdBookmark);
+    return { success: true, action: "created" };
+  } else if (intent === "remove" && bm) {
+    console.log("Removing bookmark:", bm);
+    // Delete the existing bookmark
+    const deletedBookmark = await deleteBookmark(bm?.id, user.id);
+    console.log("Bookmark deleted:", deletedBookmark);
+    return { success: true, action: "deleted" };
+  } else {
+    console.error("Invalid intent:", intent);
+    return { success: false };
+  }
+ 
 }

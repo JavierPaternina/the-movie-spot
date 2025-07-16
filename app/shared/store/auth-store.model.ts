@@ -17,7 +17,9 @@ export type TUser = {
   username: string;
   password: string;
 };
-export type TAuthContext  = {
+// Define the context for authentication state
+// This includes user information, authentication status, and methods to update the state.
+export type TAuthContext = {
   user: TUser | null | undefined;
   isAuthenticated: boolean;
   loginConfig: TLogin | TRegister;

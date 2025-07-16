@@ -1,7 +1,7 @@
+import { UserSessionData } from "@/.server/auth-types";
+import { commitSession, getSession } from "@/.server/auth/cookie-session";
+import { getUserById } from "@/.server/services/user";
 import { redirect } from "@remix-run/react";
-import { UserSessionData } from "../auth-types";
-import { getUserById } from "../services/user";
-import { commitSession, getSession } from "./cookie-session";
 
 // Session management
 export async function createUserSession(user: UserSessionData, redirectTo: string = '/') {

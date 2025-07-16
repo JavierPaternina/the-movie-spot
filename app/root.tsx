@@ -5,8 +5,11 @@ import { SearchBar, Sidebar } from '@Components';
 import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/node';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData, useLocation } from '@remix-run/react';
 import { useEffect } from 'react';
+import { getBookmarksByUserId } from './.server/services/set-bookmark';
 import './app.css';
-import { useAuthUser } from './shared/hooks';
+import { useAuthUser, useBookmarksContext } from './shared/hooks';
+import { TBookmark } from './shared/store/bookmarks-store';
+import { TMediaInfo } from './shared/types';
 
 export const links: LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -28,8 +31,15 @@ export const links: LinksFunction = () => [
 export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const user = await getUser(request);
 	const isAuthenticated = !!user;
-
-	return { isAuthenticated, user };
+	if (user) {
+		const bookmarks = await getBookmarksByUserId(user?.id);
+		return {
+			isAuthenticated,
+			user: null,
+			bookmarks: bookmarks.map((b) => ({ id: b.id?.toString(), media: b.media as TMediaInfo })) as TBookmark[],
+		};
+	}
+	return { isAuthenticated, user, bookmarks: [] as TBookmark[] };
 };
 export function Layout({ children }: { children: React.ReactNode }) {
 	const location = useLocation();
@@ -60,12 +70,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-	const { isAuthenticated, user } = useLoaderData<{ isAuthenticated: boolean; user: TUser | null }>();
+	const { isAuthenticated, user, bookmarks } = useLoaderData<{
+		isAuthenticated: boolean;
+		user: TUser | null;
+		bookmarks: TBookmark[];
+	}>();
 	const { setIsAuthenticated, setUser } = useAuthUser();
+	const { addBookmarks } = useBookmarksContext();
 	useEffect(() => {
 		setIsAuthenticated(isAuthenticated);
 		setUser(user);
-	}, []);
+		addBookmarks(bookmarks);
+	}, [bookmarks]);
 
 	return <Outlet />;
 }

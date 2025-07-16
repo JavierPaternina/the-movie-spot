@@ -1,9 +1,11 @@
 import { getTvShows } from '@/.server/api/api-calls';
 import { TvSeriesPage } from '@/pages/tv-series';
 import { MEDIA_TYPE } from '@/shared/constant/media-type';
+import { useBookmarksContext } from '@/shared/hooks';
 import { TMediaInfo } from '@/shared/types';
 import type { MetaFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
+import { useEffect } from 'react';
 
 export const meta: MetaFunction = () => {
 	return [{ title: 'The Movie spot - Tv Series' }, { name: 'TV Series ', content: 'Welcome to Tv series' }];
@@ -27,5 +29,13 @@ export const loader = async () => {
 };
 export default function Index() {
 	const { tvShows } = useLoaderData<{ tvShows: TMediaInfo[] }>();
+	// This is the main entry point for the TV Series page
+	// This hook is used to handle bookmark actions
+	// It sets the possible bookmarks based on the fetched TV shows
+	const { setPossibleBookmarks } = useBookmarksContext();
+	useEffect(() => {
+		setPossibleBookmarks(tvShows);
+	}, [tvShows]);
+
 	return <TvSeriesPage tvShows={tvShows} />;
 }

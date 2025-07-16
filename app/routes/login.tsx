@@ -4,7 +4,7 @@ import { LoginPage } from '@/pages/login';
 import { LOGIN } from '@/shared/constant/login';
 import { useAuthUser } from '@/shared/hooks';
 import { TAuthErrors } from '@/shared/types';
-import { json, type ActionFunctionArgs, type LoaderFunctionArgs, type MetaFunction } from '@remix-run/node';
+import { type ActionFunctionArgs, type LoaderFunctionArgs, type MetaFunction } from '@remix-run/node';
 import { useActionData, useLoaderData } from '@remix-run/react';
 import { useEffect } from 'react';
 
@@ -36,13 +36,13 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 	}
 
 	if (Object.keys(errors).length > 0) {
-		return json({ errors }, { status: 400 });
+		return { errors };
 	}
 
 	const user = await verifyLogin(email!, password!);
 	if (!user) {
 		errors.general = 'Invalid email or password';
-		return json({ errors }, { status: 400 });
+		return { errors };
 	}
 
 	return createUserSession(user);
