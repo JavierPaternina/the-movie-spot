@@ -90,7 +90,7 @@
   
   
   @utility bookmark-icon-container {
-    @apply absolute top-100 right-100 size-[32px] lg:size-[42px] md:top-200 md:right-200 rounded-full bg-blue-950 opacity-[0.50] justify-center flex flex-col cursor-pointer;
+    @apply  size-[32px] lg:size-[42px] md:top-200 md:right-200 rounded-full bg-blue-950 opacity-[0.50] justify-center flex flex-col cursor-pointer;
   }
 
   @utility bookmark-icon-container-hover {

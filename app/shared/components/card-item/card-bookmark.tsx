@@ -6,7 +6,7 @@ export const CardBookmark: React.FC<{ id: string | number }> = ({ id }) => {
 	const { isBookMarked, onBookmarkClick } = useBookmarkAction(id);
 	return (
 		<div
-			className="z-20 group bookmark-icon-container hover:bookmark-icon-container-hover touch-auto"
+			className="z-20 absolute top-100 right-100 group bookmark-icon-container hover:bookmark-icon-container-hover touch-auto"
 			onClick={onBookmarkClick}
 			role="button"
 			tabIndex={0}
