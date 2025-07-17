@@ -13,7 +13,7 @@ const MediaContentItemComponent: React.FC<MediaContentItemProps> = ({ item }) =>
 	// The MediaContentItem component is used to display media items in a grid format.
 	return (
 		<div className="flex flex-col h-[158px] sm:h-[195px] lg:h-[230px] gap-1 sm:gap-0 ">
-			<div className="w-full h-[110px]  sm:h-[140px] lg:h-[174px] rounded-lg">
+			<div className="w-full h-[110px]  sm:h-[140px] lg:h-[174px] rounded-lg sm:mb-1">
 				<CardImage info={imageCard} />
 			</div>
 			<CardDescription description={descriptionCard} />
