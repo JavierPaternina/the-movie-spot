@@ -22,7 +22,6 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 export default function Index() {
 	const { user, bookmarks } = useLoaderData<typeof loader>();
-	//console.log('Bookmarks:', bookmarks);
 	const { addBookmarks } = useBookmarksContext();
 	// You can pass user and bookmarks to the BookmarksPage component
 	// or use them directly in this component as needed.
