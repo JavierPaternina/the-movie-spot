@@ -1,4 +1,3 @@
-// export default Profile;
 import { useAuthUser } from '@/shared/hooks';
 import React from 'react';
 import { LoginButton } from './sidebar-login';
