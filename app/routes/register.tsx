@@ -55,7 +55,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
 	if (existingUser) {
 		if (existingUser.email === email) {
-			errors.email = 'A user with this email already exists';
+			errors.general = 'A user with this email already exists';
 		}
 
 		return { errors };

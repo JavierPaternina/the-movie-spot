@@ -10,6 +10,7 @@ export const useFormAuth = () => {
     const submit = useSubmit()
     // Initialize form data state to handle input values
     const [formData, setFormData] = useState(iniData);
+    const [isLoading, setIsLoading] = useState(false);
 
     // Initialize errors state to handle form validation errors
     // This can be expanded based on the specific validation needs
@@ -68,6 +69,7 @@ export const useFormAuth = () => {
     // Function to handle form submission
     const onSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        setIsLoading(true);
         submit(formData, {
             method: 'post',
             action: formData.repeatPassword ? '/register' : '/login',
@@ -83,7 +85,9 @@ export const useFormAuth = () => {
         onUpdateFormData,
         errors,
         setErrors,
-        onSubmit
+        onSubmit,
+        isLoading,
+        setIsLoading
     };
 };
 
