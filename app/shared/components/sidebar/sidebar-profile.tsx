@@ -1,9 +1,14 @@
-const Profile: React.FC = () => {
+import { useAuthUser } from '@/shared/hooks';
+import React from 'react';
+import { LoginButton } from './sidebar-login';
+import { LogoutMenu } from './sidebar-logout-menu';
+
+export const Profile: React.FC = () => {
+	const { isAuthenticated } = useAuthUser();
 	return (
-		<div className="flex justify-end h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10">
-			<img className="rounded-full border border-white" src="./profile-test.jpg" alt="avatar" />
-		</div>
+		<>
+			{!isAuthenticated && <LoginButton />}
+			{isAuthenticated && <LogoutMenu />}
+		</>
 	);
 };
-
-export default Profile;

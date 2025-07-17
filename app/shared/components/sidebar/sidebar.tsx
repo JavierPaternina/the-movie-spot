@@ -1,7 +1,7 @@
 import React from 'react';
 import SideBarLogo from './sidebar-logo';
 import SidebarNav from './sidebar-nav';
-import Profile from './sidebar-profile';
+import { Profile } from './sidebar-profile';
 
 export const Sidebar: React.FC = () => {
 	return (

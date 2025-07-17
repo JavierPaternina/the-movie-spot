@@ -5,7 +5,6 @@ export const createUser = async (userData: {  email: string; password: string })
         data: {
             email: userData.email,
             password: userData.password,
-            username: '',
         },
     });
 };
