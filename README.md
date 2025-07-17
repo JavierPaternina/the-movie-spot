@@ -1,9 +1,14 @@
 # The Movie Spot 🎬
 
 A modern movie discovery application built with Remix, React, and TypeScript. Discover trending movies and TV shows with a beautiful, responsive interface powered by The Movie Database (TMDB) API.
+ ## Preview Desktop
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/6dd75bf7-ec0b-488e-bc28-6f66a79cc2d4"  />
 
-<img width="1024" height="541" alt="image" src="https://github.com/user-attachments/assets/6dd75bf7-ec0b-488e-bc28-6f66a79cc2d4" />
+ ## Preview Tablet
+<img width="300" height="567" alt="image" src="https://github.com/user-attachments/assets/c6d0afb6-6257-4b46-ad9f-0e4d93112051" />
 
+ ## Preview Mobile
+<img width="250" height="500" alt="image" src="https://github.com/user-attachments/assets/f338f7fa-b477-4a49-a870-6f59759fc1e8" />
 
 
 ## ✨ Features
