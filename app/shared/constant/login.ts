@@ -2,10 +2,10 @@
 const LOGIN_CSS = {
     inputs:  `bg-transparent w-full h-600 outline-none text-white text-preset-mobile-2 sm:text-preset-4 p-100 border-b border-blue-500`,
     inputsError: "border-red-500",
-    button: "group w-full flex justify-center h-600 items-center text-preset-4 bg-red-500 hover:bg-white rounded-lg cursor-pointer transition-colors duration-300",
+    button: "group w-full gap-100 flex justify-center h-600 items-center text-preset-4 bg-red-500 hover:bg-white rounded-lg cursor-pointer transition-colors duration-300",
     btnText: "text-white group-hover:text-blue-950",
     form: "mt-8 space-y-6",
-    
+    loadingIndicator: "inline-block text-blue-900 h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-e-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]",
     loginForm: "min-h-[360px] sm:min-h-[373px]",
     registerForm: "min-h-[425px]",
 };
